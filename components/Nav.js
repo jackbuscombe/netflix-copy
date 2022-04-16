@@ -17,10 +17,10 @@ function Nav() {
 	}, []);
 
 	return (
-		<div className={`fixed top-0 p-6 w-full h-36 z-50 transition-all ease-in items-center ${show && "bg-black"}`}>
-			<div className="flex justify-between items-center">
-				<img className="fixed h-24 w-36 left-0 object-contain pl-8 cursor-pointer top-4" src="https://index.impakter.com/wp-content/uploads/2020/11/Netflix-Logo.png" alt="Netflix" />
-				<img className="fixed right-4 h-12 w-12 cursor-pointer" src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png" alt="" />
+		<div className={`fixed top-0 p-6 w-full h-1/6 z-50 transition-all ease-in object-center ${show && "bg-black"}`}>
+			<div className="flex justify-between items-center h-full px-4">
+				<img className="h-24 w-32 cursor-pointer object-contain" src="https://index.impakter.com/wp-content/uploads/2020/11/Netflix-Logo.png" alt="Netflix" />
+				<img className="h-12 w-12 cursor-pointer" src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png" alt="" />
 			</div>
 		</div>
 	);

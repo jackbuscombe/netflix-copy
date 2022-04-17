@@ -19,13 +19,12 @@ function Banner() {
 		return string?.length > n ? string.substr(0, n - 1) + "..." : string;
 	}
 
-	console.log(movie);
 	return (
 		<header
 			className="bg-cover relative h-2/5 object-contain"
 			style={{
 				backgroundImage: `url('https://image.tmdb.org/t/p/original/${movie?.backdrop_path}')`,
-				backgroundPosition: "center center",
+				backgroundPosition: "center",
 			}}
 		>
 			<div className="ml-10 pt-40 h-80 text-white">

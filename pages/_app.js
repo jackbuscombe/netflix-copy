@@ -20,6 +20,7 @@ function MyApp({ Component, pageProps }) {
 				});
 			} else {
 				setUser(null);
+				router.push("/");
 			}
 		});
 

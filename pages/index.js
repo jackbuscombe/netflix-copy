@@ -1,8 +1,33 @@
 import Head from "next/head";
-import Image from "next/image";
 import HomeScreen from "../components/HomeScreen";
+import { useStore } from "../appStore";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../firebase";
+import { useEffect } from "react";
+import { useRouter } from "next/router";
 
 export default function Home() {
+	const user = useStore((state) => state.user);
+	const userSubscriptionType = useStore((state) => state.userSubscriptionType);
+	const setUserSubscriptionType = useStore((state) => state.setUserSubscriptionType);
+	const router = useRouter();
+
+	useEffect(() => {
+		getDocs(collection(db, "customers", user.uid, "subscriptions")).then((querySnapshot) => {
+			if (querySnapshot.docs.length == 0) {
+				router.replace("/profile");
+			}
+			console.log(querySnapshot);
+			querySnapshot.forEach(async (subscription) => {
+				if (!subscription) {
+				}
+				setUserSubscriptionType(subscription.data().role);
+			});
+		});
+	}, [user.uid]);
+
+	console.log(userSubscriptionType);
+
 	return (
 		<div className="bg-black">
 			<Head>
